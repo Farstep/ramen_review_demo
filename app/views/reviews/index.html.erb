@@ -1,0 +1,42 @@
+<section class="section mt-6">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        <div class="card mb-6">
+          <header class="card-header">
+            <p class="card-header-title">
+              <%= @ramen_shop.name %>
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content average-score">
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= @ramen_shop.review_score_percentage %>%">★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
+              </div>
+              <div class="average-score-display ml-3 pt-2">
+                <%= @ramen_shop.avg_score %>点（<%= @ramen_shop.reviews.count %>件のレビュー）
+              </div>
+            </div>
+          </div>
+        </div>
+        <table class="table is-fullwidth has-text-centered">
+          <thead>
+            <tr>
+              <th>ユーザー</th><th>点数</th><th>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @reviews.each do |review| %>
+              <tr>
+                <td><%= review.user.username %></td>
+                <td><%= review.score %></td>
+                <td><%= review.content %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
