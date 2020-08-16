@@ -10,9 +10,9 @@ class RamenShop < ApplicationRecord
 
   def review_score_percentage
     unless self.reviews.empty?
-      reviews.average(:score).floor(2).to_f*100/5
+      reviews.average(:score).round(1).to_f*100/5
     else
-      0
+      0.0
     end
   end
 end
